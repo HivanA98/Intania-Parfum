@@ -1,0 +1,14 @@
+{
+  "name": "Intania Parfum",
+  "short_name": "Intania",
+  "description": "Parfum wanita handmade dengan kelopak bunga kering asli, dikirim dari Jakarta.",
+  "lang": "id",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#FBF6F2",
+  "theme_color": "#3B2A2E",
+  "icons": [
+    {"src": "img/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "img/icon-512.png", "sizes": "512x512", "type": "image/png"}
+  ]
+}
