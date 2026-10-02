@@ -3,212 +3,526 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Atelier Wangi — Parfum</title>
+<title>Intania Parfum — Parfum Botanical Handmade</title>
+<meta name="description" content="Intania Parfum — parfum handmade dengan kelopak bunga kering asli. Diracik di Jakarta, dikirim ke seluruh Indonesia.">
+<meta name="theme-color" content="#FBF6F2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
 <style>
 :root{
-  --bg:#F1EFF4; --surface:#FFFFFF; --ink:#24212C; --muted:#625D6D; --line:#DAD6E0;
-  --wa:#17824A; --wa-ink:#FFFFFF; --focus:#5B3FD6; --chip:#E4E0EA;
-  --serif:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
-  --sans:"Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --bg:#FBF6F2; --bg-2:#F4E8E3; --surface:#FFFDFB; --ink:#3B2A2E; --muted:#7A666A; --line:#EAD9D3;
+  --rose:#C08590; --rose-deep:#8E4A57; --gold:#B08D5E; --cta:#3B2A2E; --cta-ink:#FBF6F2;
+  --photo:#FFFFFF; --focus:#8E4A57;
+  --serif:"Cormorant Garamond", "Didot", Georgia, serif;
+  --sans:"Jost", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
   box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#16141B; --surface:#201D27; --ink:#EEEAF3; --muted:#A8A2B3; --line:#35313E;
-    --wa:#1F9E5A; --focus:#A894FF; --chip:#2B2733;
+    --bg:#1A1416; --bg-2:#241B1E; --surface:#211A1D; --ink:#F3E6E2; --muted:#BFA9AD; --line:#3A2D31;
+    --rose:#D99AA5; --rose-deep:#E7B3BC; --gold:#D4B483; --cta:#F3E6E2; --cta-ink:#1A1416;
+    --photo:#F6F1EE; --focus:#E7B3BC;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#16141B; --surface:#201D27; --ink:#EEEAF3; --muted:#A8A2B3; --line:#35313E;
-  --wa:#1F9E5A; --focus:#A894FF; --chip:#2B2733;
+  --bg:#1A1416; --bg-2:#241B1E; --surface:#211A1D; --ink:#F3E6E2; --muted:#BFA9AD; --line:#3A2D31;
+  --rose:#D99AA5; --rose-deep:#E7B3BC; --gold:#D4B483; --cta:#F3E6E2; --cta-ink:#1A1416;
+  --photo:#F6F1EE; --focus:#E7B3BC;
 }
 *,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+html{scroll-padding-top:96px;scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
 button,input,select,textarea{font:inherit;color:inherit}
-:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+@media (max-width:600px){.wrap{padding:0 16px}}
+.eyebrow{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;color:var(--rose-deep);margin:0 0 14px;font-weight:500}
+.h-sec{font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.08;margin:0 0 14px;letter-spacing:-.005em}
+.h-sec em{font-style:italic;color:var(--rose-deep)}
+.lead{color:var(--muted);max-width:52ch;margin:0;font-weight:300;font-size:1.05rem}
+.sec-head{text-align:center;margin:0 auto 44px;max-width:640px}
+.sec-head .lead{margin:0 auto}
+.ornament{display:block;width:72px;height:12px;margin:0 auto 18px;color:var(--gold)}
 
-/* Header */
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{font-family:var(--serif);font-weight:700;font-size:1.5rem;letter-spacing:.01em;text-decoration:none;color:inherit}
-.cart-btn{position:relative;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 16px;cursor:pointer}
-.cart-btn .count{min-width:22px;height:22px;border-radius:11px;background:var(--ink);color:var(--bg);font-size:.8rem;font-weight:600;display:inline-grid;place-items:center;padding:0 6px}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:14px 28px;font-weight:500;font-size:.88rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:background .3s var(--ease),color .3s var(--ease),border-color .3s,transform .3s var(--ease)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn.solid{background:var(--cta);color:var(--cta-ink)}
+.btn.solid:hover{background:var(--rose-deep);color:#fff}
+.btn.line{border-color:color-mix(in srgb,var(--ink) 35%,transparent);color:var(--ink);background:transparent}
+.btn.line:hover{border-color:var(--ink);background:var(--ink);color:var(--bg)}
 
-/* Hero carousel */
-.hero{position:relative;overflow:hidden;touch-action:pan-y}
-.track{display:flex;transition:transform .7s cubic-bezier(.65,0,.35,1)}
-@media (prefers-reduced-motion: reduce){.track{transition:none}}
-.slide{flex:0 0 100%;background:color-mix(in srgb,var(--c) 30%,var(--bg));}
-.slide .wrap{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:24px;min-height:min(560px,78vh);padding-top:40px;padding-bottom:64px}
-.slide-text .fam{color:var(--muted);margin:0 0 8px;font-weight:500}
-.slide-text h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.6rem,7vw,5.4rem);line-height:.98;margin:0 0 20px;letter-spacing:-.01em}
-.slide-text .desc{max-width:36ch;font-size:1.1rem;margin:0 0 12px}
-.slide-text .notes{color:var(--muted);margin:0 0 20px;max-width:44ch}
-.slide-text .from{font-weight:600;margin:0 0 20px}
-.slide-art{display:grid;place-items:center}
-.slide-art svg,.slide-art img{width:min(340px,80%);height:auto;filter:drop-shadow(0 24px 30px color-mix(in srgb,var(--c) 45%,transparent))}
-.slide-art img{aspect-ratio:3/4;object-fit:cover;border-radius:12px}
-.btn-row{display:flex;flex-wrap:wrap;gap:10px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:12px 22px;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid transparent}
-.btn.wa{background:var(--wa);color:var(--wa-ink)}
-.btn.wa:hover{filter:brightness(1.08)}
-.btn.ghost{background:transparent;border-color:var(--ink);color:var(--ink)}
-.btn.ghost:hover{background:var(--ink);color:var(--bg)}
-.hero-ctrl{position:absolute;left:0;right:0;bottom:18px;display:flex;justify-content:center;align-items:center;gap:14px}
-.dots{display:flex;gap:8px}
-.dot{width:10px;height:10px;border-radius:5px;border:0;padding:0;background:color-mix(in srgb,var(--ink) 25%,transparent);cursor:pointer;transition:width .3s}
-.dot[aria-current="true"]{width:28px;background:var(--ink)}
-.arrow{width:38px;height:38px;border-radius:50%;border:1px solid color-mix(in srgb,var(--ink) 30%,transparent);background:color-mix(in srgb,var(--surface) 70%,transparent);cursor:pointer;display:grid;place-items:center}
-.arrow svg{width:16px;height:16px}
+/* Announcement + header */
+.announce{background:var(--cta);color:var(--cta-ink);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;text-align:center;padding:9px 16px}
+@media (max-width:600px){.announce{letter-spacing:.12em;font-size:.66rem}}
+header.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.top.scrolled{border-bottom-color:var(--line)}
+header.top .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:76px}
+.nav{display:flex;gap:28px}
+.nav a{text-decoration:none;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+.nav a:hover{color:var(--ink)}
+.brand{text-decoration:none;text-align:center;line-height:1;display:flex;flex-direction:column;align-items:center}
+.brand .b1{font-family:var(--serif);font-style:italic;font-weight:500;font-size:2rem;letter-spacing:.01em}
+.brand .b2{font-size:.6rem;letter-spacing:.55em;text-transform:uppercase;color:var(--rose-deep);margin-top:4px;padding-left:.55em}
+.head-r{display:flex;justify-content:flex-end}
+.cart-btn{position:relative;display:inline-flex;align-items:center;gap:10px;border:0;background:transparent;cursor:pointer;padding:8px 4px;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase}
+.cart-btn svg{width:22px;height:22px}
+.cart-btn .count{position:absolute;top:0;right:-8px;min-width:19px;height:19px;border-radius:10px;background:var(--rose-deep);color:#fff;font-size:.68rem;letter-spacing:0;font-weight:500;display:grid;place-items:center;padding:0 5px;transform:scale(0);transition:transform .3s var(--ease)}
+.cart-btn .count.has{transform:scale(1)}
+.cart-btn .count.bump{animation:bump .45s var(--ease)}
+@keyframes bump{40%{transform:scale(1.35)}}
+@media (max-width:860px){
+  header.top .wrap{grid-template-columns:auto 1fr auto;height:64px}
+  .nav{display:none}
+  .brand{align-items:flex-start;text-align:left}
+  .brand .b1{font-size:1.65rem}
+  .cart-btn .lbl{display:none}
+}
 
-/* Collection */
-.collection{padding:56px 0 40px}
-.collection h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,4vw,2.8rem);margin:0 0 6px;line-height:1.1}
-.collection .lead{color:var(--muted);margin:0 0 24px}
-.tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:24px}
-.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;flex:1 1 100%;scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}
-.chip{flex:0 0 auto;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 15px;cursor:pointer;white-space:nowrap}
+/* Hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(1200px 600px at 85% 10%,color-mix(in srgb,var(--rose) 18%,transparent),transparent 60%),var(--bg)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;padding-top:56px;padding-bottom:88px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.9rem,6.6vw,5.6rem);line-height:.98;margin:0 0 24px;letter-spacing:-.015em}
+.hero h1 em{font-style:italic;color:var(--rose-deep)}
+.hero .lead{font-size:1.12rem;margin-bottom:34px}
+.hero .btn-row{display:flex;flex-wrap:wrap;gap:12px}
+.hero-meta{display:flex;gap:32px;margin-top:44px;padding-top:28px;border-top:1px solid var(--line);flex-wrap:wrap}
+.hero-meta div{font-size:.82rem;color:var(--muted);line-height:1.4}
+.hero-meta b{display:block;font-family:var(--serif);font-weight:500;font-size:1.5rem;color:var(--ink)}
+.hero-art{position:relative;justify-self:center;width:min(440px,100%)}
+.arch{border-radius:999px 999px 18px 18px;overflow:hidden;background:var(--bg-2)}
+.hero-art .arch{aspect-ratio:4/5.4;box-shadow:0 40px 80px -40px color-mix(in srgb,var(--rose-deep) 55%,transparent)}
+.hero-art .arch img{width:100%;height:100%;object-fit:cover;object-position:50% 66%;transform:scale(1.04);animation:slowzoom 18s var(--ease) infinite alternate}
+@keyframes slowzoom{to{transform:scale(1.12)}}
+.hero-art .bubble{position:absolute;left:-44px;bottom:42px;width:150px;aspect-ratio:1;border-radius:50%;overflow:hidden;border:6px solid var(--bg);box-shadow:0 20px 40px -20px rgba(59,42,46,.45)}
+.hero-art .bubble img{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.seal{position:absolute;right:-26px;top:38px;width:128px;height:128px;color:var(--ink)}
+.seal svg{width:100%;height:100%;animation:spin 28s linear infinite}
+.seal .core{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--serif);font-style:italic;font-size:2.1rem;color:var(--rose-deep)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.hero-art .arch img,.seal svg{animation:none}}
+.petal{position:absolute;width:18px;height:28px;border-radius:50% 50% 50% 0;background:color-mix(in srgb,var(--rose) 55%,transparent);opacity:.55;pointer-events:none}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;gap:40px;padding-top:28px;padding-bottom:64px}
+  .hero-art{order:-1;width:min(330px,82%)}
+  .hero-art .bubble{width:110px;left:-26px;bottom:24px}
+  .seal{width:100px;height:100px;right:-18px;top:20px}
+  .seal .core{font-size:1.7rem}
+  .hero-meta{gap:22px}
+}
+
+/* Marquee */
+.marquee{border-block:1px solid var(--line);overflow:hidden;background:var(--bg-2);padding:16px 0}
+.marquee-track{display:flex;width:max-content;animation:marq 38s linear infinite}
+.marquee span{font-family:var(--serif);font-style:italic;font-size:1.35rem;padding:0 28px;white-space:nowrap;display:inline-flex;align-items:center;gap:56px}
+.marquee span::after{content:"✦";font-style:normal;font-size:.8rem;color:var(--gold)}
+@keyframes marq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.marquee-track{animation:none}}
+
+/* Format collection */
+section.block{padding:104px 0}
+@media (max-width:600px){section.block{padding:72px 0}}
+.formats{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.fmt{text-align:center;text-decoration:none;cursor:pointer;background:none;border:0;padding:0}
+.fmt .arch{aspect-ratio:3/4;margin-bottom:22px;position:relative}
+.fmt .arch img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.fmt:hover .arch img{transform:scale(1.06)}
+.fmt .arch::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ink) 8%,transparent)}
+.fmt h3{font-family:var(--serif);font-weight:500;font-size:1.75rem;margin:0 0 4px;line-height:1.1}
+.fmt .meta{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose-deep);margin:0 0 10px}
+.fmt p.d{color:var(--muted);font-weight:300;margin:0 auto 14px;max-width:32ch}
+.fmt .go{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:3px}
+@media (max-width:860px){
+  .formats{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:min(72%,320px);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;margin:0 -16px;padding-inline:16px;scrollbar-width:none}
+  .formats::-webkit-scrollbar{display:none}
+  .fmt{scroll-snap-align:center}
+}
+
+/* Shop */
+.shop{background:var(--bg-2)}
+.filters{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:40px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+@media (max-width:600px){.chips{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;width:calc(100% + 32px);margin:0 -16px;padding:2px 16px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}}
+.chip{flex:0 0 auto;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:9px 18px;cursor:pointer;white-space:nowrap;font-size:.86rem;letter-spacing:.04em;display:inline-flex;align-items:center;gap:8px;transition:all .25s var(--ease)}
+.chip:hover{border-color:var(--rose)}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.search{flex:1 1 220px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:10px 16px;min-width:0}
-.sort{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:10px 14px}
+.chip .sw{width:10px;height:10px;border-radius:50%;background:var(--c)}
+.result{font-size:.82rem;color:var(--muted);letter-spacing:.06em;margin:0}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
-@media (max-width:520px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:90px}
-.card.flash{outline:2px solid var(--focus);outline-offset:2px}
-.card-media{aspect-ratio:4/5;background:color-mix(in srgb,var(--c) 24%,var(--bg));display:grid;place-items:center}
-.card-media svg{width:72%;height:auto}
-.card-media img{width:100%;height:100%;object-fit:cover}
-.card-body{padding:14px 14px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
-.card h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.15;margin:0}
-.card .fam{margin:0;color:var(--muted);font-size:.85rem}
-.card .notes{margin:0;font-size:.9rem;color:var(--muted)}
-.sizes{display:flex;gap:6px;flex-wrap:wrap}
-.size{border:1px solid var(--line);background:transparent;border-radius:4px;padding:4px 9px;font-size:.85rem;cursor:pointer}
-.size[aria-pressed="true"]{border-color:var(--ink);background:var(--chip);font-weight:600}
-.price{font-weight:600;font-size:1.05rem;margin:2px 0 0}
-.actions{display:flex;flex-direction:column;gap:6px;margin-top:auto}
-.actions .btn{padding:10px 12px;font-size:.92rem;width:100%}
-.add{background:var(--ink);color:var(--bg)}
-.add:hover{filter:brightness(1.15)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:28px 22px}
+@media (max-width:600px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}}
+.card{display:flex;flex-direction:column;scroll-margin-top:110px}
+.card.flash .card-media{outline:2px solid var(--rose-deep);outline-offset:4px}
+.card-media{position:relative;aspect-ratio:4/5;background:var(--photo);border-radius:14px;overflow:hidden}
+.card-media img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.card:hover .card-media img{transform:scale(1.05)}
+.badge{position:absolute;top:12px;left:12px;background:var(--surface);color:var(--rose-deep);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;padding:5px 11px;border-radius:999px;font-weight:500}
+.quick{position:absolute;right:12px;bottom:12px;width:46px;height:46px;border-radius:50%;border:0;background:var(--cta);color:var(--cta-ink);display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 24px -10px rgba(0,0,0,.45);transition:transform .3s var(--ease),background .3s}
+.quick:hover{transform:scale(1.08);background:var(--rose-deep);color:#fff}
+.quick svg{width:20px;height:20px}
+.card-body{padding:16px 4px 0;display:flex;flex-direction:column;gap:4px;flex:1}
+.card .fmt-l{margin:0;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose-deep)}
+.card h3{font-family:var(--serif);font-weight:500;font-size:1.55rem;line-height:1.1;margin:0}
+.card .notes{margin:0;font-size:.88rem;color:var(--muted);font-weight:300}
+.card .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-top:auto;padding-top:10px}
+.price{font-size:1.02rem;font-weight:500;letter-spacing:.02em}
+.wa-link{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px;white-space:nowrap}
+.wa-link:hover{color:var(--ink);border-color:var(--ink)}
+@media (max-width:600px){
+  .card h3{font-size:1.25rem}
+  .card .notes{font-size:.8rem}
+  .card .row{flex-direction:column;align-items:flex-start;gap:6px}
+  .quick{width:40px;height:40px;right:8px;bottom:8px}
+  .badge{top:8px;left:8px;font-size:.6rem;padding:4px 8px}
+}
 .empty{grid-column:1/-1;text-align:center;padding:48px 16px;color:var(--muted)}
-.empty button{margin-top:12px}
 
-/* How to order */
-.howto{border-top:1px solid var(--line);padding:48px 0}
-.howto h2{font-family:var(--serif);font-weight:500;font-size:1.8rem;margin:0 0 20px}
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;counter-reset:s}
-.steps li{counter-increment:s;max-width:34ch}
-.steps li::before{content:counter(s);font-family:var(--serif);font-size:2.4rem;line-height:1;display:block;margin-bottom:6px}
-footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:.9rem}
-footer a{color:var(--ink)}
+/* Scent profiles */
+.scent-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:40px;align-items:start}
+.lookbook{margin:0;position:sticky;top:100px;border-radius:24px;overflow:hidden;box-shadow:0 40px 80px -48px rgba(59,42,46,.6)}
+.lookbook img{width:100%;height:auto}
+.scents{display:grid;gap:20px}
+@media (max-width:860px){
+  .scent-layout{grid-template-columns:1fr}
+  .lookbook{position:static;max-width:440px;margin:0 auto;width:100%}
+}
+.scent{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:34px 30px 30px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.scent::before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-110px;top:-120px;background:radial-gradient(circle,color-mix(in srgb,var(--c) 40%,transparent),transparent 70%)}
+.orb{width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 32% 30%,#fff 0 8%,color-mix(in srgb,var(--c) 70%,#fff) 30%,var(--c) 80%);box-shadow:0 12px 26px -10px var(--c);margin-bottom:22px}
+.scent h3{font-family:var(--serif);font-weight:500;font-size:2rem;margin:0;line-height:1.05}
+.scent .mood{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--rose-deep);margin:2px 0 14px}
+.scent p.d{color:var(--muted);font-weight:300;margin:0 0 20px}
+.pyr{list-style:none;margin:0 0 22px;padding:0;border-top:1px solid var(--line)}
+.pyr li{display:grid;grid-template-columns:88px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.pyr span{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.scent .wear{font-size:.88rem;color:var(--muted);margin:0 0 22px}
+.scent .wear b{color:var(--ink);font-weight:500}
+.scent .btn{margin-top:auto;align-self:flex-start}
+
+/* Story */
+.story .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:center}
+.story .arch{aspect-ratio:4/5;max-width:440px}
+.story .arch img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.story-art{position:relative}
+.story-art .sig{position:absolute;right:0;bottom:-18px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 20px;max-width:240px;font-family:var(--serif);font-style:italic;font-size:1.15rem;line-height:1.3;box-shadow:0 24px 40px -28px rgba(59,42,46,.5)}
+.story p.body{color:var(--muted);font-weight:300;margin:0 0 16px;max-width:54ch;font-size:1.04rem}
+.values{list-style:none;padding:0;margin:34px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:24px 28px}
+.values li{display:flex;gap:14px;align-items:flex-start}
+.values .ic{flex:none;width:44px;height:44px;border-radius:50%;background:var(--bg-2);display:grid;place-items:center;color:var(--rose-deep)}
+.values .ic svg{width:20px;height:20px}
+.values b{display:block;font-weight:500;margin-bottom:2px}
+.values span{font-size:.88rem;color:var(--muted);font-weight:300;line-height:1.45;display:block}
+@media (max-width:860px){
+  .story .wrap{grid-template-columns:1fr;gap:56px}
+  .story .arch{margin:0 auto;width:82%}
+  .story-art .sig{right:4%}
+}
+@media (max-width:480px){.values{grid-template-columns:1fr}}
+
+/* Steps */
+.howto{background:var(--bg-2)}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:s}
+@media (max-width:860px){.steps{grid-template-columns:1fr}}
+.steps li{counter-increment:s;background:var(--surface);border-radius:20px;padding:30px 28px;border:1px solid var(--line)}
+.steps li::before{content:"0" counter(s);font-family:var(--serif);font-style:italic;font-size:2.8rem;line-height:1;display:block;color:var(--rose);margin-bottom:14px}
+.steps b{display:block;font-family:var(--serif);font-weight:500;font-size:1.45rem;margin-bottom:6px}
+.steps span{color:var(--muted);font-weight:300}
+
+/* FAQ */
+.faq{max-width:780px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 40px 22px 0;font-family:var(--serif);font-size:1.4rem;font-weight:500;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:12px;height:12px;border-right:1.5px solid var(--rose-deep);border-bottom:1.5px solid var(--rose-deep);transform:translateY(-70%) rotate(45deg);transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
+.faq details p{margin:0 0 22px;color:var(--muted);font-weight:300;max-width:62ch}
+
+/* CTA band */
+.band{background:var(--cta);color:var(--cta-ink);text-align:center;padding:88px 0;position:relative;overflow:hidden}
+.band .h-sec{color:inherit}
+.band .h-sec em{color:var(--rose)}
+.band p{opacity:.78;font-weight:300;margin:0 auto 32px;max-width:48ch}
+.band .btn{background:var(--cta-ink);color:var(--cta)}
+.band .btn:hover{background:var(--rose);color:#fff}
+
+footer{padding:64px 0 40px;font-size:.9rem;color:var(--muted)}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--line)}
+@media (max-width:760px){footer .cols{grid-template-columns:1fr}}
+footer h4{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);margin:0 0 14px;font-weight:500}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--ink)}
+footer .brand{align-items:flex-start;text-align:left;margin-bottom:14px}
+footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:24px;font-size:.8rem}
+
+/* Floating WA */
+.float-wa{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:25;display:flex;align-items:center;gap:10px;background:var(--cta);color:var(--cta-ink);text-decoration:none;border-radius:999px;padding:13px 20px 13px 16px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 18px 36px -16px rgba(59,42,46,.6);transition:transform .3s var(--ease),background .3s}
+.float-wa:hover{transform:translateY(-2px);background:var(--rose-deep);color:#fff}
+.float-wa svg{width:20px;height:20px}
+@media (max-width:600px){.float-wa{padding:14px}.float-wa .lbl{display:none}}
 
 /* Cart dialog */
-dialog.cart{margin:0 0 0 auto;height:100%;max-height:100%;width:min(440px,100%);max-width:100%;border:0;padding:0;background:var(--surface);color:var(--ink)}
-dialog.cart::backdrop{background:rgba(10,8,14,.45)}
-.cart-inner{display:flex;flex-direction:column;height:100%;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-.cart-head{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
-.cart-head h2{font-family:var(--serif);font-weight:500;margin:0;font-size:1.6rem}
-.x{border:0;background:transparent;font-size:1.6rem;line-height:1;cursor:pointer;padding:4px 8px}
-.cart-list{flex:1;overflow-y:auto;padding:8px 20px;margin:0;list-style:none}
-.cart-item{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
-.ci-thumb{width:52px;height:64px;border-radius:4px;background:color-mix(in srgb,var(--c) 28%,var(--bg));display:grid;place-items:center;overflow:hidden}
-.ci-thumb svg{width:80%}
+dialog.cart{margin:0 0 0 auto;height:100%;max-height:100%;width:min(460px,100%);max-width:100%;border:0;padding:0;background:var(--surface);color:var(--ink)}
+dialog.cart[open]{animation:slidein .4s var(--ease)}
+@keyframes slidein{from{transform:translateX(40px);opacity:0}}
+@media (prefers-reduced-motion: reduce){dialog.cart[open]{animation:none}}
+dialog.cart::backdrop{background:rgba(30,20,24,.42);backdrop-filter:blur(3px)}
+.cart-inner{display:flex;flex-direction:column;height:100%;padding-bottom:env(safe-area-inset-bottom,0px)}
+.cart-head{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid var(--line)}
+.cart-head h2{font-family:var(--serif);font-weight:500;margin:0;font-size:1.9rem}
+.x{border:0;background:transparent;font-size:1.8rem;line-height:1;cursor:pointer;padding:4px 8px;color:var(--muted)}
+.x:hover{color:var(--ink)}
+.cart-scroll{flex:1;overflow-y:auto}
+.cart-list{padding:4px 24px;margin:0;list-style:none}
+.cart-item{display:grid;grid-template-columns:68px 1fr auto;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.ci-thumb{width:68px;height:84px;border-radius:10px;overflow:hidden;background:var(--photo)}
 .ci-thumb img{width:100%;height:100%;object-fit:cover}
-.ci-name{font-weight:600;margin:0}
-.ci-meta{margin:0;color:var(--muted);font-size:.88rem}
-.qty{display:flex;align-items:center;gap:6px}
-.qty button{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer}
-.remove{border:0;background:none;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:.82rem;padding:0;margin-top:4px}
-.cart-empty{padding:32px 0;color:var(--muted)}
-.cart-foot{border-top:1px solid var(--line);padding:16px 20px;display:flex;flex-direction:column;gap:10px}
-.total{display:flex;justify-content:space-between;font-weight:600;font-size:1.1rem}
-.cart-foot label{font-size:.88rem;color:var(--muted);display:flex;flex-direction:column;gap:4px}
-.cart-foot input,.cart-foot textarea{border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:9px 12px}
-.cart-foot textarea{resize:vertical;min-height:56px}
-.cart-foot .btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.ci-name{font-family:var(--serif);font-weight:500;font-size:1.2rem;margin:0;line-height:1.15}
+.ci-meta{margin:2px 0 0;color:var(--muted);font-size:.82rem}
+.qty{display:flex;align-items:center;gap:4px;border:1px solid var(--line);border-radius:999px;padding:3px}
+.qty button{width:28px;height:28px;border-radius:50%;border:0;background:transparent;cursor:pointer}
+.qty button:hover{background:var(--bg-2)}
+.qty span{min-width:18px;text-align:center;font-size:.9rem}
+.remove{border:0;background:none;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:.78rem;padding:0;margin-top:6px}
+.cart-empty{padding:48px 0;text-align:center;color:var(--muted)}
+.cart-empty .btn{margin-top:18px}
+.cart-form{padding:20px 24px 8px;display:grid;gap:12px}
+.cart-form h3{margin:0;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--muted)}
+.cart-form label{font-size:.84rem;color:var(--muted);display:flex;flex-direction:column;gap:5px}
+.cart-form input:not([type=checkbox]),.cart-form textarea{border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:11px 14px;font-size:.95rem}
+.cart-form input:focus,.cart-form textarea:focus{outline:none;border-color:var(--rose)}
+.cart-form textarea{resize:vertical;min-height:64px}
+.cart-form label.check{flex-direction:row;align-items:center;gap:10px;color:var(--ink);cursor:pointer}
+.cart-form .check input{width:18px;height:18px;accent-color:var(--rose-deep)}
+.cart-foot{border-top:1px solid var(--line);padding:18px 24px 22px;display:grid;gap:10px;background:var(--surface)}
+.total{display:flex;justify-content:space-between;align-items:baseline}
+.total span:first-child{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.total span:last-child{font-family:var(--serif);font-size:1.7rem;font-weight:500}
+.cart-foot small{color:var(--muted);font-size:.78rem}
+.cart-foot .btn[aria-disabled="true"]{opacity:.4;pointer-events:none}
 
-.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;z-index:50;font-size:.92rem}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--surface);color:var(--ink);border:1px solid var(--line);padding:12px 20px;border-radius:999px;opacity:0;transition:opacity .3s,transform .3s var(--ease);pointer-events:none;z-index:60;font-size:.9rem;box-shadow:0 20px 40px -20px rgba(59,42,46,.5);display:flex;gap:10px;align-items:center;max-width:calc(100% - 32px)}
+.toast::before{content:"✦";color:var(--gold)}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
-@media (max-width:760px){
-  .slide .wrap{grid-template-columns:1fr;gap:8px;padding-top:20px;padding-bottom:72px;min-height:0}
-  .slide-art{order:-1}
-  .slide-art svg,.slide-art img{width:min(200px,55%)}
-  .slide-text h2{margin-bottom:12px}
-  .slide-text .desc{font-size:1rem}
-  .card h3{font-size:1.1rem}
-  .card .notes{display:none}
-}
+/* Reveal on scroll */
+html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+html.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){html.js .reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
 
-<header class="top">
+<div class="announce" id="announce">Diracik tangan di Jakarta · Dikirim ke seluruh Indonesia</div>
+
+<header class="top" id="top">
   <div class="wrap">
-    <a class="brand" href="#" id="brandName">Atelier Wangi</a>
-    <button class="cart-btn" id="openCart" aria-haspopup="dialog">
-      Keranjang <span class="count" id="cartCount">0</span>
-    </button>
+    <nav class="nav" aria-label="Menu utama">
+      <a href="#koleksi">Koleksi</a>
+      <a href="#wangi">Wangi</a>
+      <a href="#cerita">Cerita</a>
+      <a href="#cara-pesan">Cara Pesan</a>
+    </nav>
+    <a class="brand" href="#" aria-label="Intania Parfum, ke atas">
+      <span class="b1">Intania</span><span class="b2">Parfum</span>
+    </a>
+    <div class="head-r">
+      <button class="cart-btn" id="openCart" aria-haspopup="dialog" aria-label="Buka keranjang">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+        <span class="lbl">Keranjang</span>
+        <span class="count" id="cartCount">0</span>
+      </button>
+    </div>
   </div>
 </header>
 
 <main>
-  <section class="hero" aria-roledescription="carousel" aria-label="Varian unggulan" id="hero">
-    <div class="track" id="track"></div>
-    <div class="hero-ctrl">
-      <button class="arrow" id="prev" aria-label="Varian sebelumnya"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3 5 8l5 5"/></svg></button>
-      <div class="dots" id="dots" role="group" aria-label="Pilih slide"></div>
-      <button class="arrow" id="next" aria-label="Varian berikutnya"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 3 5 5-5 5"/></svg></button>
+  <section class="hero">
+    <span class="petal" style="left:6%;top:18%;transform:rotate(-20deg)"></span>
+    <span class="petal" style="left:44%;top:78%;transform:rotate(40deg) scale(.7)"></span>
+    <span class="petal" style="right:4%;bottom:12%;transform:rotate(120deg) scale(.85)"></span>
+    <div class="wrap">
+      <div class="hero-text reveal">
+        <p class="eyebrow">Parfum botanical · Handmade</p>
+        <h1>Wangi lembut yang <em>tinggal</em> di ingatan.</h1>
+        <p class="lead">Setiap botol Intania berisi kelopak bunga kering asli, diracik perlahan dalam jumlah kecil — untuk perempuan yang ingin wanginya terasa personal, bukan pasaran.</p>
+        <div class="btn-row">
+          <a class="btn solid" href="#koleksi">Lihat Koleksi</a>
+          <a class="btn line" id="heroWa" target="_blank" rel="noopener">Bantu pilihkan wangi</a>
+        </div>
+        <div class="hero-meta">
+          <div><b>3</b>Karakter wangi</div>
+          <div><b>100%</b>Bunga kering asli</div>
+          <div><b>Jakarta</b>Kirim ke seluruh Indonesia</div>
+        </div>
+      </div>
+      <div class="hero-art reveal">
+        <div class="arch"><img src="img/koleksi-edp.jpg" alt="Tiga botol Eau de Parfum Intania berisi kelopak bunga kering" fetchpriority="high"></div>
+        <div class="bubble"><img src="img/series%20petals%20by%20Ri%20Rains%20Parfum.jpg" alt="Series Petals Intania bertutup kayu"></div>
+        <div class="seal" aria-hidden="true">
+          <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs>
+            <circle cx="60" cy="60" r="58" fill="var(--surface)"/>
+            <text font-family="Jost, sans-serif" font-size="8.4" letter-spacing="2.3" fill="currentColor"><textPath href="#circ">HANDMADE WITH LOVE · INTANIA PARFUM · </textPath></text>
+          </svg>
+          <span class="core">I</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="collection" id="koleksi">
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marquee"></div>
+  </div>
+
+  <section class="block" id="format">
     <div class="wrap">
-      <h2>Semua varian</h2>
-      <p class="lead" id="lead"></p>
-      <div class="tools">
-        <div class="chips" id="chips" role="group" aria-label="Filter aroma"></div>
-        <input class="search" id="search" type="search" placeholder="Cari nama atau notes, mis. vanila" aria-label="Cari varian">
-        <select class="sort" id="sort" aria-label="Urutkan">
-          <option value="unggulan">Urutan default</option>
-          <option value="murah">Harga terendah</option>
-          <option value="mahal">Harga tertinggi</option>
-          <option value="nama">Nama A–Z</option>
-        </select>
+      <div class="sec-head reveal">
+        <svg class="ornament" viewBox="0 0 72 12" fill="none" stroke="currentColor" aria-hidden="true"><path d="M0 6h28M44 6h28"/><path d="M36 1l5 5-5 5-5-5z" fill="currentColor"/></svg>
+        <p class="eyebrow">Koleksi Intania</p>
+        <h2 class="h-sec">Tiga cara <em>memakai</em> wangi</h2>
+        <p class="lead">Satu karakter wangi, tiga bentuk — pilih yang paling pas dengan harimu.</p>
+      </div>
+      <div class="formats" id="formats"></div>
+    </div>
+  </section>
+
+  <section class="block shop" id="koleksi">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Belanja</p>
+        <h2 class="h-sec">Temukan <em>favoritmu</em></h2>
+      </div>
+      <div class="filters">
+        <div class="chips" id="fmtChips" role="group" aria-label="Filter bentuk"></div>
+        <div class="chips" id="scentChips" role="group" aria-label="Filter wangi"></div>
+        <p class="result" id="result" aria-live="polite"></p>
       </div>
       <div class="grid" id="grid"></div>
     </div>
   </section>
 
-  <section class="howto">
+  <section class="block" id="wangi">
     <div class="wrap">
-      <h2>Cara pesan</h2>
+      <div class="sec-head reveal">
+        <svg class="ornament" viewBox="0 0 72 12" fill="none" stroke="currentColor" aria-hidden="true"><path d="M0 6h28M44 6h28"/><path d="M36 1l5 5-5 5-5-5z" fill="currentColor"/></svg>
+        <p class="eyebrow">Series Petals</p>
+        <h2 class="h-sec">Kala, Rona &amp; <em>Lembayung</em></h2>
+        <p class="lead">Tiga karakter wangi, masing-masing dengan bunga keringnya sendiri di dalam botol.</p>
+      </div>
+      <div class="scent-layout">
+        <figure class="lookbook reveal">
+          <img src="img/series%20petals%20by%20Ri%20Rains%20Parfum%202.jpeg" alt="Tiga botol Series Petals bertutup kayu dengan deskripsi wangi Kala, Rona, dan Lembayung" loading="lazy">
+        </figure>
+        <div class="scents" id="scents"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block story" id="cerita">
+    <div class="wrap">
+      <div class="story-art reveal">
+        <div class="arch"><img src="img/series%20classic.jpg" alt="Series Classic Intania di atas meja" loading="lazy"></div>
+        <div class="sig">“Dibuat pelan-pelan, dengan tangan dan hati.”</div>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">Cerita kami</p>
+        <h2 class="h-sec">Dari rumah kecil di <em>Jakarta</em>, untukmu.</h2>
+        <p class="body">Intania Parfum lahir sebagai usaha rumahan. Setiap botol diracik, diisi, dan dihias kelopak bunga kering satu per satu — bukan produksi pabrik, melainkan batch kecil yang kami perhatikan detailnya.</p>
+        <p class="body">Kami tidak punya toko fisik; semua pesanan dikemas rapi dari Jakarta dan dikirim langsung ke alamatmu.</p>
+        <ul class="values">
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21c0-6 0-9 6-14-1 7-3 10-6 14Z"/><path d="M12 21c0-5-1-8-6-11 0 6 2 9 6 11Z"/></svg></span><div><b>Bunga kering asli</b><span>Kelopak dan kuntum asli di setiap botol.</span></div></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></span><div><b>Diracik tangan</b><span>Batch kecil, dicek satu per satu.</span></div></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="9" width="16" height="11" rx="1"/><path d="M3 9h18M12 9v11M12 9c-2-4-6-4-6-1.5S12 9 12 9Zm0 0c2-4 6-4 6-1.5S12 9 12 9Z"/></svg></span><div><b>Siap jadi hadiah</b><span>Cantik untuk kado sahabat atau diri sendiri.</span></div></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg></span><div><b>Kirim dari Jakarta</b><span>Ke seluruh Indonesia via ekspedisi.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block howto" id="cara-pesan">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Mudah &amp; personal</p>
+        <h2 class="h-sec">Cara <em>memesan</em></h2>
+      </div>
       <ol class="steps">
-        <li>Pilih varian dan ukuran botol, lalu tekan <b>Tambah ke keranjang</b>. Bisa beberapa varian sekaligus.</li>
-        <li>Buka keranjang, isi nama dan alamat pengiriman.</li>
-        <li>Tekan <b>Kirim pesanan ke WhatsApp</b>. Pesanan terkirim sebagai pesan, admin akan konfirmasi stok, ongkir, dan pembayaran.</li>
+        <li class="reveal"><b>Pilih wangimu</b><span>Masukkan varian favorit ke keranjang — boleh beberapa sekaligus.</span></li>
+        <li class="reveal"><b>Isi data pengiriman</b><span>Buka keranjang, tulis nama dan alamat lengkap. Mau dibungkus kado? Centang saja.</span></li>
+        <li class="reveal"><b>Kirim via WhatsApp</b><span>Pesananmu terkirim otomatis. Admin akan konfirmasi stok, ongkir, dan pembayaran.</span></li>
       </ol>
+    </div>
+  </section>
+
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Pertanyaan</p>
+        <h2 class="h-sec">Yang sering <em>ditanyakan</em></h2>
+      </div>
+      <div class="faq reveal">
+        <details><summary>Apakah ada toko fisik?</summary><p>Belum. Intania Parfum adalah usaha rumahan dan hanya melayani pesanan online. Semua pesanan dikirim dari Jakarta.</p></details>
+        <details><summary>Bisa kirim ke luar Jakarta?</summary><p>Bisa, kami kirim ke seluruh Indonesia lewat ekspedisi. Ongkos kirim dihitung sesuai alamat dan dikonfirmasi admin lewat WhatsApp.</p></details>
+        <details><summary>Bunga di dalam botol itu asli?</summary><p>Ya, setiap botol berisi kelopak atau kuntum bunga kering asli sebagai hiasan. Bentuk dan warnanya bisa sedikit berbeda di setiap botol — itulah yang membuatnya unik.</p></details>
+        <details><summary>Bagaimana cara pembayarannya?</summary><p>Setelah pesanan dikirim via WhatsApp, admin akan mengirimkan total beserta ongkir dan pilihan pembayaran.</p></details>
+        <details><summary>Bisa minta dibungkus untuk hadiah?</summary><p>Bisa. Centang “Bungkus sebagai hadiah” di keranjang dan tulis pesan kartu ucapanmu, admin akan mengonfirmasi detailnya.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap reveal">
+      <h2 class="h-sec">Bingung memilih? <em>Tanya kami.</em></h2>
+      <p>Ceritakan wangi yang kamu suka atau untuk siapa hadiahnya — kami bantu pilihkan yang paling cocok.</p>
+      <a class="btn" id="bandWa" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 1c-1-.4-1.6-1-2-2l1-1-1-2z" fill="currentColor" stroke="none"/></svg>
+        Chat via WhatsApp
+      </a>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <p>Harga belum termasuk ongkir. Ketersediaan stok dikonfirmasi lewat WhatsApp.</p>
-    <p>Tanya dulu? <a id="footerWa" target="_blank" rel="noopener">Chat admin di WhatsApp</a></p>
+    <div class="cols">
+      <div>
+        <a class="brand" href="#"><span class="b1">Intania</span><span class="b2">Parfum</span></a>
+        <p style="max-width:36ch;margin:0">Parfum botanical handmade dengan kelopak bunga kering asli. Usaha rumahan, melayani pesanan online dari Jakarta ke seluruh Indonesia.</p>
+      </div>
+      <div>
+        <h4>Belanja</h4>
+        <ul>
+          <li><a href="#koleksi" data-fmt-link="edp">Eau de Parfum</a></li>
+          <li><a href="#koleksi" data-fmt-link="petals">Series Petals</a></li>
+          <li><a href="#koleksi" data-fmt-link="classic">Series Classic</a></li>
+          <li><a href="#koleksi" data-fmt-link="set">Gift Set</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hubungi</h4>
+        <ul>
+          <li><a id="footerWa" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li id="igItem" hidden><a id="footerIg" target="_blank" rel="noopener">Instagram</a></li>
+          <li>Online store · Jakarta</li>
+        </ul>
+      </div>
+    </div>
+    <div class="fine">
+      <span>© <span id="year"></span> Intania Parfum</span>
+      <span>Harga belum termasuk ongkir · Stok dikonfirmasi via WhatsApp</span>
+    </div>
   </div>
 </footer>
+
+<a class="float-wa" id="floatWa" target="_blank" rel="noopener" aria-label="Chat Intania Parfum via WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 1c-1-.4-1.6-1-2-2l1-1-1-2z" fill="currentColor" stroke="none"/></svg>
+  <span class="lbl">Chat kami</span>
+</a>
 
 <dialog class="cart" id="cart" aria-labelledby="cartTitle">
   <div class="cart-inner">
@@ -216,13 +530,25 @@ dialog.cart::backdrop{background:rgba(10,8,14,.45)}
       <h2 id="cartTitle">Keranjang</h2>
       <button class="x" id="closeCart" aria-label="Tutup keranjang">×</button>
     </div>
-    <ul class="cart-list" id="cartList"></ul>
+    <div class="cart-scroll">
+      <ul class="cart-list" id="cartList"></ul>
+      <div class="cart-form" id="cartForm">
+        <h3>Data pengiriman</h3>
+        <label>Nama penerima<input id="custName" autocomplete="name"></label>
+        <label>Alamat lengkap<textarea id="custAddr" autocomplete="street-address" placeholder="Jalan, nomor rumah, RT/RW, kelurahan"></textarea></label>
+        <label>Kota / Kecamatan<input id="custCity" autocomplete="address-level2"></label>
+        <label class="check"><input type="checkbox" id="gift"> Bungkus sebagai hadiah</label>
+        <label id="giftMsgWrap" hidden>Pesan kartu ucapan<textarea id="giftMsg" placeholder="Untuk sahabatku tersayang…"></textarea></label>
+        <label>Catatan (opsional)<input id="custNote"></label>
+      </div>
+    </div>
     <div class="cart-foot">
-      <div class="total"><span>Total</span><span id="cartTotal">Rp 0</span></div>
-      <label>Nama<input id="custName" autocomplete="name"></label>
-      <label>Alamat pengiriman<textarea id="custAddr" autocomplete="street-address"></textarea></label>
-      <label>Catatan (opsional)<input id="custNote"></label>
-      <a class="btn wa" id="sendWa" target="_blank" rel="noopener">Kirim pesanan ke WhatsApp</a>
+      <div class="total"><span>Subtotal</span><span id="cartTotal">Rp 0</span></div>
+      <small>Ongkir dari Jakarta dihitung admin setelah pesanan masuk.</small>
+      <a class="btn solid" id="sendWa" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 1c-1-.4-1.6-1-2-2l1-1-1-2z" fill="currentColor" stroke="none"/></svg>
+        Kirim pesanan via WhatsApp
+      </a>
     </div>
   </div>
 </dialog>
@@ -233,256 +559,184 @@ dialog.cart::backdrop{background:rgba(10,8,14,.45)}
 /* ================== PENGATURAN TOKO ==================
    Ganti nilai di bawah ini sesuai toko Anda.
    WA_NUMBER: format internasional tanpa "+" dan tanpa 0 di depan, contoh 6281234567890
+   INSTAGRAM: isi username tanpa "@" (kosongkan bila belum ada)
 ====================================================== */
-const STORE_NAME = "Atelier Wangi";
-const WA_NUMBER = "6281234567890";
-const SIZES = [30, 50, 100];               // ukuran botol (ml)
-const AUTOPLAY_MS = 5000;                  // jeda geser otomatis banner
+const STORE_NAME = "Intania Parfum";
+const WA_NUMBER  = "6281234567890";
+const INSTAGRAM  = "";
 
-/* Data varian.
-   - base: harga 30 ml. Harga 50 & 100 ml dihitung otomatis (lihat priceOf), atau isi "prices" manual.
-   - img: isi URL/path foto produk (mis. "img/melati.jpg") untuk mengganti ilustrasi botol.
-   - featured: true = tampil di banner bergulir. */
-const PRODUCTS = [
-  {id:1, name:"Oud Nusantara",   family:"Oriental", notes:["gaharu","safron","kulit"],          color:"#5E3F62", shape:"facet",   cap:"emas",  base:149000, featured:true, desc:"Gaharu yang hangat dan berasap, untuk malam yang panjang."},
-  {id:2, name:"Melati Senja",    family:"Floral",   notes:["melati","pir","musk"],              color:"#E7BFD0", shape:"bulat",   cap:"bola",  base:99000,  featured:true, desc:"Melati segar dengan sentuhan buah pir yang lembut."},
-  {id:3, name:"Kopi Gayo",       family:"Gourmand", notes:["kopi","vanila","tonka"],            color:"#7A5240", shape:"kotak",   cap:"blok",  base:119000, featured:true, desc:"Aroma kopi sangrai yang manis, nyaman dipakai sehari-hari."},
-  {id:4, name:"Laut Banda",      family:"Fresh",    notes:["garam laut","sage","driftwood"],    color:"#6FA3B8", shape:"ramping", cap:"tinggi",base:109000, featured:true, desc:"Segar seperti angin pantai, ringan untuk cuaca panas."},
-  {id:5, name:"Jeruk Pontianak", family:"Citrus",   notes:["jeruk","bergamot","neroli"],        color:"#F0BE5E", shape:"kotak",   cap:"emas",  base:89000,  featured:true, desc:"Citrus cerah yang langsung terasa sejak semprotan pertama."},
-  {id:6, name:"Mawar Malam",     family:"Floral",   notes:["mawar","lada merah","patchouli"],   color:"#B4475A", shape:"facet",   cap:"blok",  base:129000},
-  {id:7, name:"Hujan Kemuning",  family:"Fresh",    notes:["kemuning","ozonik","vetiver"],      color:"#BFD8E6", shape:"bulat",   cap:"blok",  base:99000},
-  {id:8, name:"Kayu Cendana",    family:"Woody",    notes:["cendana","kapulaga","ambar"],       color:"#C9A27A", shape:"kotak",   cap:"blok",  base:139000},
-  {id:9, name:"Vanila Bourbon",  family:"Gourmand", notes:["vanila","karamel","rum"],           color:"#E3C08F", shape:"bulat",   cap:"emas",  base:109000},
-  {id:10,name:"Teh Hijau",       family:"Fresh",    notes:["teh hijau","mint","melati"],        color:"#B9D4A0", shape:"ramping", cap:"bola",  base:89000},
-  {id:11,name:"Kenanga Putih",   family:"Floral",   notes:["kenanga","iris","musk putih"],      color:"#EADCC8", shape:"ramping", cap:"emas",  base:109000},
-  {id:12,name:"Pala Banda",      family:"Oriental", notes:["pala","cengkih","ambar"],           color:"#A0522D", shape:"kotak",   cap:"emas",  base:129000},
-  {id:13,name:"Rumput Basah",    family:"Fresh",    notes:["rumput","galbanum","cemara"],       color:"#8DB580", shape:"kotak",   cap:"tinggi",base:89000},
-  {id:14,name:"Lavender Dieng",  family:"Floral",   notes:["lavender","bergamot","tonka"],      color:"#B7A6D9", shape:"bulat",   cap:"bola",  base:99000},
-  {id:15,name:"Kelapa Muda",     family:"Gourmand", notes:["kelapa","susu","cendana"],          color:"#E8DFCC", shape:"bulat",   cap:"blok",  base:99000},
-  {id:16,name:"Akar Wangi",      family:"Woody",    notes:["vetiver","jeruk nipis","cedar"],    color:"#8C8A5A", shape:"ramping", cap:"blok",  base:119000},
-  {id:17,name:"Lemon Garam",     family:"Citrus",   notes:["lemon","garam","rosemary"],         color:"#E3DA6C", shape:"ramping", cap:"tinggi",base:89000},
-  {id:18,name:"Ambar Senja",     family:"Oriental", notes:["ambar","labdanum","vanila"],        color:"#C9772E", shape:"facet",   cap:"emas",  base:139000},
-  {id:19,name:"Pinus Merapi",    family:"Woody",    notes:["pinus","juniper","kemenyan"],       color:"#4F6B57", shape:"facet",   cap:"blok",  base:129000},
-  {id:20,name:"Leci Mawar",      family:"Floral",   notes:["leci","mawar","musk"],              color:"#F0A8B8", shape:"kotak",   cap:"bola",  base:99000},
-  {id:21,name:"Cokelat Hitam",   family:"Gourmand", notes:["kakao","patchouli","kopi"],         color:"#4A3027", shape:"facet",   cap:"emas",  base:129000},
-  {id:22,name:"Yuzu Pagi",       family:"Citrus",   notes:["yuzu","jahe","teh putih"],          color:"#F4D35E", shape:"bulat",   cap:"tinggi",base:99000},
-  {id:23,name:"Kemenyan Sumatra",family:"Oriental", notes:["kemenyan","mur","resin"],           color:"#8A6E58", shape:"ramping", cap:"emas",  base:149000},
-  {id:24,name:"Cemara Salju",    family:"Woody",    notes:["cemara","musk","ambergris"],        color:"#A8B8C4", shape:"kotak",   cap:"tinggi",base:119000}
+/* Bentuk produk. Harga di sini berlaku untuk semua wangi,
+   kecuali diisi khusus di SCENTS[x].prices. */
+const IMG_PETALS  = "img/series%20petals%20by%20Ri%20Rains%20Parfum.jpg";
+const IMG_CLASSIC = "img/series%20classic.jpg";
+const FORMATS = {
+  edp:     {label:"Eau de Parfum",  size:"30 ml", price:189000, cover:"img/koleksi-edp.jpg", pos:"50% 64%",
+            desc:"Botol kaca bulat bertutup hitam, berisi kelopak bunga kering. Semprotan halus untuk seharian."},
+  petals:  {label:"Series Petals",  size:"10 ml", price:69000,  cover:IMG_PETALS,  pos:"50% 50%",
+            desc:"Botol kaca ramping bertutup kayu dengan kelopak bunga kering asli. Mungil, muat di tas kecil mana pun."},
+  classic: {label:"Series Classic", size:"10 ml", price:59000,  cover:IMG_CLASSIC, pos:"30% 60%",
+            desc:"Botol ramping warna krem, ringan dan praktis untuk touch-up di kantor atau perjalanan."}
+};
+
+/* Karakter wangi. img: foto per bentuk (lihat folder img/produk). */
+const SCENTS = [
+  {id:"kala", name:"Kala", mood:"Segar & ceria", color:"#C98A4E",
+   desc:"Seperti minuman buah segar saat liburan di pantai — bikin semangat, tapi tetap ada manis vanila di akhir.",
+   notes:["Buah segar","Vanila manis"], wear:"Liburan, akhir pekan, hari cerah",
+   img:{edp:"img/produk/edp-kala.jpg", petals:"img/produk/petals-kala.jpg", classic:"img/produk/classic.jpg"}},
+  {id:"rona", name:"Rona", mood:"Bersih & anggun", color:"#D9839A",
+   desc:"Seperti wangi rambut atau pakaian sehabis mandi — wangi bunganya anggun dan berkelas, tidak bikin pusing.",
+   notes:["Floral lembut","Wangi bersih"], wear:"Kerja, kuliah, sehari-hari",
+   img:{edp:"img/produk/edp-rona.jpg", petals:"img/produk/petals-rona.jpg", classic:"img/produk/classic.jpg"}},
+  {id:"lembayung", name:"Lembayung", mood:"Feminin & manis", color:"#E0B54E",
+   desc:"Wangi perempuan yang feminin banget — melati yang harum semerbak berpadu manis karamel yang creamy.",
+   notes:["Melati","Karamel creamy"], wear:"Kencan, acara spesial",
+   img:{edp:"img/produk/edp-lembayung.jpg", petals:"img/produk/petals-lembayung.jpg", classic:"img/produk/classic.jpg"}}
 ];
+
+/* Produk tambahan di luar kombinasi wangi × bentuk */
+const EXTRAS = [
+  {id:"trio-petals", name:"Trio Petals", format:"set", fmtLabel:"Gift Set", size:"3 × 10 ml", price:189000,
+   img:IMG_PETALS, notes:"Kala, Rona & Lembayung dalam satu set", badge:"Hadiah"}
+];
+
+const MARQUEE = ["Kelopak bunga asli", "Diracik tangan", "Batch kecil", "Siap jadi hadiah", "Dikirim dari Jakarta"];
 
 /* ================== LOGIKA ================== */
 const $ = s => document.querySelector(s);
-const byId = new Map(PRODUCTS.map(p => [p.id, p]));
 const rupiah = n => "Rp " + n.toLocaleString("id-ID");
-const roundK = n => Math.round(n / 1000) * 1000;
-function priceOf(p, size){
-  if (p.prices && p.prices[size]) return p.prices[size];
-  const mult = {30:1, 50:1.55, 100:2.6}[size] || size/30;
-  return roundK(p.base * mult);
-}
 const waLink = text => "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text);
+const scentById = new Map(SCENTS.map(s => [s.id, s]));
+const ICON_BAG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8M12 12v5M9.5 14.5h5"/></svg>';
 
-/* Ilustrasi botol SVG (dipakai bila produk belum punya foto) */
-let svgSeq = 0;
-function bottle(p){
-  const uid = "b" + p.id + "_" + (svgSeq++);
-  const S = {
-    kotak:  {body:'<rect x="45" y="95" width="110" height="150" rx="14"/>', top:95,  neck:[88,76,24,22], cap:[76,30,48,48]},
-    bulat:  {body:'<circle cx="100" cy="172" r="74"/>',                       top:98,  neck:[88,78,24,24], cap:[76,32,48,48]},
-    ramping:{body:'<rect x="68" y="82" width="64" height="166" rx="10"/>',    top:82,  neck:[90,62,20,22], cap:[80,20,40,44]},
-    facet:  {body:'<path d="M62 95H138L160 132V212L138 248H62L40 212V132Z"/>',top:95,  neck:[88,76,24,22], cap:[76,30,48,48]}
-  }[p.shape] || null;
-  const s = S || {body:'<rect x="45" y="95" width="110" height="150" rx="14"/>', top:95, neck:[88,76,24,22], cap:[76,30,48,48]};
-  const capFill = p.cap === "emas" ? "#B8995A" : "#2B2833";
-  const [cx,cy,cw,ch] = s.cap;
-  let cap;
-  if (p.cap === "bola") cap = `<circle cx="100" cy="${cy+ch/2}" r="${cw/2}" fill="${capFill}"/>`;
-  else if (p.cap === "tinggi") cap = `<rect x="${cx+8}" y="${cy-14}" width="${cw-16}" height="${ch+14}" rx="3" fill="${capFill}"/>`;
-  else cap = `<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="4" fill="${capFill}"/>`;
-  const [nx,ny,nw,nh] = s.neck;
-  return `<svg viewBox="0 0 200 260" role="img" aria-label="Botol ${p.name}">
-    <defs>
-      <clipPath id="${uid}">${s.body}</clipPath>
-      <linearGradient id="${uid}g" x1="0" x2="1" y1="0" y2="0">
-        <stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset=".3" stop-color="#fff" stop-opacity="0"/>
-        <stop offset=".85" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".18"/>
-      </linearGradient>
-    </defs>
-    <ellipse cx="100" cy="252" rx="62" ry="6" fill="rgba(0,0,0,.14)"/>
-    <rect x="${nx}" y="${ny}" width="${nw}" height="${nh}" fill="rgba(255,255,255,.65)" stroke="rgba(0,0,0,.2)" stroke-width="1.2"/>
-    <g fill="rgba(255,255,255,.4)">${s.body}</g>
-    <g clip-path="url(#${uid})">
-      <rect x="0" y="${s.top+18}" width="200" height="260" fill="${p.color}" opacity=".92"/>
-      <rect x="0" y="0" width="200" height="260" fill="url(#${uid}g)"/>
-    </g>
-    <g fill="none" stroke="rgba(0,0,0,.22)" stroke-width="1.5">${s.body}</g>
-    <rect x="76" y="${s.top+58}" width="48" height="30" rx="2" fill="rgba(255,255,255,.82)"/>
-    <text x="100" y="${s.top+78}" text-anchor="middle" font-family="Bodoni Moda, Georgia, serif" font-size="13" fill="#2B2833">${p.name.split(" ")[0].slice(0,7)}</text>
-    ${cap}
-  </svg>`;
-}
-const media = p => p.img
-  ? `<img src="${p.img}" alt="${p.name}" loading="lazy">`
-  : bottle(p);
+const ITEMS = [];
+SCENTS.forEach(s => Object.entries(FORMATS).forEach(([f, F]) => ITEMS.push({
+  id:`${s.id}-${f}`, name:s.name, scent:s.id, format:f, fmtLabel:F.label, size:F.size,
+  price:(s.prices && s.prices[f]) || F.price, img:s.img[f],
+  notes:s.notes.join(" · "), badge:(s.badge && f === "edp") ? s.badge : ""
+})));
+EXTRAS.forEach(e => ITEMS.push(e));
+const itemById = new Map(ITEMS.map(i => [i.id, i]));
+const itemLabel = i => `${i.name} — ${i.fmtLabel} ${i.size}`;
 
-/* ---------- Banner bergulir ---------- */
-const featured = PRODUCTS.filter(p => p.featured);
-const track = $("#track"), dots = $("#dots"), hero = $("#hero");
-track.innerHTML = featured.map((p,i) => `
-  <div class="slide" style="--c:${p.color}" role="group" aria-roledescription="slide" aria-label="${i+1} dari ${featured.length}: ${p.name}" ${i?'aria-hidden="true"':''}>
-    <div class="wrap">
-      <div class="slide-text">
-        <p class="fam">${p.family}</p>
-        <h2>${p.name}</h2>
-        <p class="desc">${p.desc || ""}</p>
-        <p class="notes">Notes: ${p.notes.join(", ")}</p>
-        <p class="from">Mulai ${rupiah(priceOf(p,SIZES[0]))} / ${SIZES[0]} ml</p>
-        <div class="btn-row">
-          <a class="btn wa" target="_blank" rel="noopener" href="${waLink(`Halo ${STORE_NAME}, saya tertarik dengan ${p.name}. Apakah stoknya tersedia?`)}" ${i?'tabindex="-1"':''}>Pesan via WhatsApp</a>
-          <button class="btn ghost" data-jump="${p.id}" ${i?'tabindex="-1"':''}>Lihat di koleksi</button>
-        </div>
-      </div>
-      <div class="slide-art">${media(p)}</div>
-    </div>
-  </div>`).join("");
-dots.innerHTML = featured.map((p,i) => `<button class="dot" aria-label="Slide ${i+1}: ${p.name}" data-i="${i}"></button>`).join("");
+/* ---------- Marquee ---------- */
+const mq = MARQUEE.map(t => `<span>${t}</span>`).join("");
+$("#marquee").innerHTML = mq + mq + mq + mq;
 
-let cur = 0, timer = null, paused = false;
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-function go(i){
-  cur = (i + featured.length) % featured.length;
-  track.style.transform = `translateX(-${cur*100}%)`;
-  [...track.children].forEach((el,k) => {
-    const on = k === cur;
-    el.setAttribute("aria-hidden", on ? "false" : "true");
-    el.querySelectorAll("a,button").forEach(b => on ? b.removeAttribute("tabindex") : b.setAttribute("tabindex","-1"));
-  });
-  [...dots.children].forEach((d,k) => d.setAttribute("aria-current", k === cur ? "true" : "false"));
-}
-function start(){ stop(); if (!reduceMotion && !paused) timer = setInterval(() => go(cur+1), AUTOPLAY_MS); }
-function stop(){ if (timer) clearInterval(timer); timer = null; }
-$("#prev").onclick = () => { go(cur-1); start(); };
-$("#next").onclick = () => { go(cur+1); start(); };
-dots.onclick = e => { const d = e.target.closest(".dot"); if (d){ go(+d.dataset.i); start(); } };
-hero.addEventListener("mouseenter", () => { paused = true; stop(); });
-hero.addEventListener("mouseleave", () => { paused = false; start(); });
-hero.addEventListener("focusin", () => { paused = true; stop(); });
-hero.addEventListener("focusout", () => { paused = false; start(); });
-document.addEventListener("visibilitychange", () => document.hidden ? stop() : start());
-let sx = null;
-hero.addEventListener("pointerdown", e => { sx = e.clientX; });
-hero.addEventListener("pointerup", e => {
-  if (sx === null) return;
-  const dx = e.clientX - sx; sx = null;
-  if (Math.abs(dx) > 50){ go(cur + (dx < 0 ? 1 : -1)); start(); }
-});
-track.addEventListener("click", e => {
-  const b = e.target.closest("[data-jump]"); if (!b) return;
-  activeFam = "Semua"; $("#search").value = ""; renderChips(); renderGrid();
-  const card = document.getElementById("p" + b.dataset.jump);
-  if (card){ card.scrollIntoView({block:"center"}); card.classList.add("flash"); setTimeout(() => card.classList.remove("flash"), 1600); }
-});
-go(0); start();
+/* ---------- Bentuk (format) ---------- */
+$("#formats").innerHTML = Object.entries(FORMATS).map(([f, F]) => `
+  <a class="fmt reveal" href="#koleksi" data-fmt-link="${f}">
+    <div class="arch"><img src="${F.cover}" alt="${F.label} Intania" loading="lazy" style="object-position:${F.pos}"></div>
+    <p class="meta">${F.size} · mulai ${rupiah(Math.min(...ITEMS.filter(i => i.format === f).map(i => i.price)))}</p>
+    <h3>${F.label}</h3>
+    <p class="d">${F.desc}</p>
+    <span class="go">Lihat varian</span>
+  </a>`).join("");
 
 /* ---------- Koleksi ---------- */
-const families = ["Semua", ...new Set(PRODUCTS.map(p => p.family))];
-let activeFam = "Semua";
-const chosenSize = new Map(PRODUCTS.map(p => [p.id, SIZES[1] || SIZES[0]]));
-$("#lead").textContent = `${PRODUCTS.length} varian aroma. Pilih ukuran, masukkan ke keranjang, lalu kirim pesanan lewat WhatsApp.`;
+const FMT_FILTERS = [["all","Semua"], ...Object.entries(FORMATS).map(([f,F]) => [f, F.label]), ...(EXTRAS.length ? [["set","Gift Set"]] : [])];
+let fmt = "all", scent = "all";
 
 function renderChips(){
-  $("#chips").innerHTML = families.map(f => `<button class="chip" aria-pressed="${f===activeFam}" data-f="${f}">${f}</button>`).join("");
+  $("#fmtChips").innerHTML = FMT_FILTERS.map(([v,l]) => `<button class="chip" data-fmt="${v}" aria-pressed="${v===fmt}">${l}</button>`).join("");
+  $("#scentChips").innerHTML = [`<button class="chip" data-scent="all" aria-pressed="${scent==="all"}">Semua wangi</button>`,
+    ...SCENTS.map(s => `<button class="chip" data-scent="${s.id}" aria-pressed="${s.id===scent}" style="--c:${s.color}"><span class="sw"></span>${s.name}</button>`)].join("");
 }
-$("#chips").onclick = e => { const c = e.target.closest(".chip"); if (c){ activeFam = c.dataset.f; renderChips(); renderGrid(); } };
-$("#search").addEventListener("input", () => renderGrid());
-$("#sort").addEventListener("change", () => renderGrid());
-
-function cardHTML(p){
-  const sz = chosenSize.get(p.id);
-  return `<article class="card" id="p${p.id}" data-id="${p.id}">
-    <div class="card-media" style="--c:${p.color}">${media(p)}</div>
+function cardHTML(i){
+  return `<article class="card reveal" id="i-${i.id}" data-id="${i.id}">
+    <div class="card-media">
+      <img src="${i.img}" alt="${itemLabel(i)}" loading="lazy">
+      ${i.badge ? `<span class="badge">${i.badge}</span>` : ""}
+      <button class="quick" data-add aria-label="Tambah ${itemLabel(i)} ke keranjang">${ICON_BAG}</button>
+    </div>
     <div class="card-body">
-      <h3>${p.name}</h3>
-      <p class="fam">${p.family}</p>
-      <p class="notes">${p.notes.join(", ")}</p>
-      <div class="sizes" role="group" aria-label="Ukuran ${p.name}">
-        ${SIZES.map(s => `<button class="size" data-size="${s}" aria-pressed="${s===sz}">${s} ml</button>`).join("")}
-      </div>
-      <p class="price">${rupiah(priceOf(p, sz))}</p>
-      <div class="actions">
-        <button class="btn add" data-add>Tambah ke keranjang</button>
-        <a class="btn wa" target="_blank" rel="noopener" data-buy href="${buyNowLink(p, sz)}">Beli via WhatsApp</a>
+      <p class="fmt-l">${i.fmtLabel} · ${i.size}</p>
+      <h3>${i.name}</h3>
+      <p class="notes">${i.notes}</p>
+      <div class="row">
+        <span class="price">${rupiah(i.price)}</span>
+        <a class="wa-link" target="_blank" rel="noopener" href="${waLink(`Halo ${STORE_NAME}, saya mau pesan:\n1. ${itemLabel(i)} × 1 = ${rupiah(i.price)}\n\nApakah stoknya tersedia?`)}">Beli via WA</a>
       </div>
     </div>
   </article>`;
 }
-function buyNowLink(p, sz){
-  return waLink(`Halo ${STORE_NAME}, saya mau pesan:\n1. ${p.name} ${sz} ml × 1 = ${rupiah(priceOf(p,sz))}\n\nApakah stoknya tersedia?`);
-}
 function renderGrid(){
-  const q = $("#search").value.trim().toLowerCase();
-  let list = PRODUCTS.filter(p =>
-    (activeFam === "Semua" || p.family === activeFam) &&
-    (!q || p.name.toLowerCase().includes(q) || p.notes.some(n => n.toLowerCase().includes(q)) || p.family.toLowerCase().includes(q)));
-  const s = $("#sort").value, ref = SIZES[0];
-  if (s === "murah") list = [...list].sort((a,b) => priceOf(a,ref) - priceOf(b,ref));
-  if (s === "mahal") list = [...list].sort((a,b) => priceOf(b,ref) - priceOf(a,ref));
-  if (s === "nama")  list = [...list].sort((a,b) => a.name.localeCompare(b.name, "id"));
-  $("#grid").innerHTML = list.length ? list.map(cardHTML).join("") :
-    `<div class="empty">Tidak ada varian yang cocok dengan pencarian ini.<br><button class="btn ghost" id="resetFilter">Tampilkan semua varian</button></div>`;
+  const list = ITEMS.filter(i => (fmt === "all" || i.format === fmt) && (scent === "all" || i.scent === scent));
+  $("#grid").innerHTML = list.length ? list.map(cardHTML).join("")
+    : `<div class="empty">Belum ada varian untuk pilihan ini.<br><br><button class="btn line" id="resetFilter">Tampilkan semua</button></div>`;
+  $("#result").textContent = `${list.length} produk`;
+  observe($("#grid"));
 }
+function setFilter(f, s){ fmt = f; scent = s; renderChips(); renderGrid(); }
+$("#fmtChips").onclick = e => { const c = e.target.closest("[data-fmt]"); if (c) setFilter(c.dataset.fmt, scent); };
+$("#scentChips").onclick = e => { const c = e.target.closest("[data-scent]"); if (c) setFilter(fmt, c.dataset.scent); };
+document.addEventListener("click", e => {
+  const l = e.target.closest("[data-fmt-link]"); if (l) setFilter(l.dataset.fmtLink, "all");
+  const s = e.target.closest("[data-scent-link]"); if (s) setFilter("all", s.dataset.scentLink);
+});
 $("#grid").addEventListener("click", e => {
-  if (e.target.id === "resetFilter"){ activeFam = "Semua"; $("#search").value = ""; renderChips(); renderGrid(); return; }
-  const card = e.target.closest(".card"); if (!card) return;
-  const p = byId.get(+card.dataset.id);
-  const sizeBtn = e.target.closest(".size");
-  if (sizeBtn){
-    const sz = +sizeBtn.dataset.size; chosenSize.set(p.id, sz);
-    card.querySelectorAll(".size").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.size === sz)));
-    card.querySelector(".price").textContent = rupiah(priceOf(p, sz));
-    card.querySelector("[data-buy]").href = buyNowLink(p, sz);
-    return;
-  }
-  if (e.target.closest("[data-add]")){
-    addToCart(p.id, chosenSize.get(p.id));
-    toast(`${p.name} ${chosenSize.get(p.id)} ml ditambahkan ke keranjang`);
-  }
+  if (e.target.id === "resetFilter") return setFilter("all", "all");
+  const b = e.target.closest("[data-add]"); if (!b) return;
+  const i = itemById.get(b.closest(".card").dataset.id);
+  addToCart(i.id);
+  toast(`${i.name} (${i.fmtLabel}) masuk ke keranjang`);
 });
 
+/* ---------- Profil wangi ---------- */
+$("#scents").innerHTML = SCENTS.map(s => `
+  <article class="scent reveal" style="--c:${s.color}">
+    <div class="orb" aria-hidden="true"></div>
+    <h3>${s.name}</h3>
+    <p class="mood">${s.mood}</p>
+    <p class="d">${s.desc}</p>
+    <ul class="pyr">
+      <li><span>Aroma</span>${s.notes.join(", ")}</li>
+      <li><span>Cocok</span>${s.wear}</li>
+    </ul>
+    <a class="btn line" href="#koleksi" data-scent-link="${s.id}">Lihat ${s.name}</a>
+  </article>`).join("");
+
 /* ---------- Keranjang ---------- */
+const CART_KEY = "intania_cart_v1";
 let cart = [];
-try { cart = JSON.parse(localStorage.getItem("cart_v1") || "[]").filter(i => byId.has(i.id) && SIZES.includes(i.size)); } catch(e){ cart = []; }
-const saveCart = () => { try { localStorage.setItem("cart_v1", JSON.stringify(cart)); } catch(e){} };
-function addToCart(id, size){
-  const it = cart.find(i => i.id === id && i.size === size);
-  it ? it.qty++ : cart.push({id, size, qty:1});
+try { cart = JSON.parse(localStorage.getItem(CART_KEY) || "[]").filter(c => itemById.has(c.id) && c.qty > 0); } catch(e){ cart = []; }
+const saveCart = () => { try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch(e){} };
+function addToCart(id){
+  const it = cart.find(c => c.id === id);
+  it ? it.qty++ : cart.push({id, qty:1});
   saveCart(); renderCart();
+  const n = $("#cartCount"); n.classList.remove("bump"); void n.offsetWidth; n.classList.add("bump");
 }
-const cartTotal = () => cart.reduce((t,i) => t + priceOf(byId.get(i.id), i.size) * i.qty, 0);
+const cartTotal = () => cart.reduce((t,c) => t + itemById.get(c.id).price * c.qty, 0);
 function buildMessage(){
-  const lines = cart.map((i,k) => { const p = byId.get(i.id); return `${k+1}. ${p.name} ${i.size} ml × ${i.qty} = ${rupiah(priceOf(p,i.size)*i.qty)}`; });
-  const name = $("#custName").value.trim(), addr = $("#custAddr").value.trim(), note = $("#custNote").value.trim();
-  return `Halo ${STORE_NAME}, saya mau pesan:\n${lines.join("\n")}\n\nTotal: ${rupiah(cartTotal())} (belum ongkir)\n\nNama: ${name || "-"}\nAlamat: ${addr || "-"}` + (note ? `\nCatatan: ${note}` : "");
+  const lines = cart.map((c,k) => { const i = itemById.get(c.id); return `${k+1}. ${itemLabel(i)} × ${c.qty} = ${rupiah(i.price*c.qty)}`; });
+  const v = s => $(s).value.trim();
+  let msg = `Halo ${STORE_NAME}, saya mau pesan:\n${lines.join("\n")}\n\nSubtotal: ${rupiah(cartTotal())} (belum ongkir)\n\nNama: ${v("#custName") || "-"}\nAlamat: ${v("#custAddr") || "-"}\nKota/Kecamatan: ${v("#custCity") || "-"}`;
+  if ($("#gift").checked) msg += `\nBungkus hadiah: Ya` + (v("#giftMsg") ? `\nKartu ucapan: "${v("#giftMsg")}"` : "");
+  if (v("#custNote")) msg += `\nCatatan: ${v("#custNote")}`;
+  return msg;
 }
 function renderCart(){
-  const count = cart.reduce((t,i) => t + i.qty, 0);
-  $("#cartCount").textContent = count;
-  $("#cartList").innerHTML = cart.length ? cart.map((i,k) => {
-    const p = byId.get(i.id);
+  const count = cart.reduce((t,c) => t + c.qty, 0);
+  const n = $("#cartCount"); n.textContent = count; n.classList.toggle("has", count > 0);
+  $("#openCart").setAttribute("aria-label", `Buka keranjang, ${count} barang`);
+  $("#cartList").innerHTML = cart.length ? cart.map((c,k) => {
+    const i = itemById.get(c.id);
     return `<li class="cart-item" data-k="${k}">
-      <div class="ci-thumb" style="--c:${p.color}">${media(p)}</div>
+      <div class="ci-thumb"><img src="${i.img}" alt=""></div>
       <div>
-        <p class="ci-name">${p.name}</p>
-        <p class="ci-meta">${i.size} ml · ${rupiah(priceOf(p,i.size))}</p>
+        <p class="ci-name">${i.name}</p>
+        <p class="ci-meta">${i.fmtLabel} · ${i.size} · ${rupiah(i.price)}</p>
         <button class="remove" data-act="rm">Hapus</button>
       </div>
       <div class="qty">
-        <button data-act="dec" aria-label="Kurangi jumlah ${p.name}">−</button>
-        <span aria-live="polite">${i.qty}</span>
-        <button data-act="inc" aria-label="Tambah jumlah ${p.name}">+</button>
+        <button data-act="dec" aria-label="Kurangi ${i.name}">−</button>
+        <span>${c.qty}</span>
+        <button data-act="inc" aria-label="Tambah ${i.name}">+</button>
       </div>
     </li>`;
-  }).join("") : `<li class="cart-empty">Keranjang masih kosong. Pilih varian di koleksi lalu tekan “Tambah ke keranjang”.</li>`;
+  }).join("") : `<li class="cart-empty">Keranjangmu masih kosong.<br><a class="btn line" href="#koleksi" id="shopNow">Mulai belanja</a></li>`;
+  $("#cartForm").hidden = !cart.length;
   $("#cartTotal").textContent = rupiah(cartTotal());
   updateSend();
 }
@@ -492,6 +746,7 @@ function updateSend(){
   else { a.removeAttribute("href"); a.setAttribute("aria-disabled","true"); }
 }
 $("#cartList").addEventListener("click", e => {
+  if (e.target.id === "shopNow") return dlg.close();
   const b = e.target.closest("[data-act]"); if (!b) return;
   const k = +b.closest(".cart-item").dataset.k, it = cart[k];
   if (b.dataset.act === "inc") it.qty++;
@@ -499,20 +754,36 @@ $("#cartList").addEventListener("click", e => {
   if (b.dataset.act === "rm" || it.qty < 1) cart.splice(k,1);
   saveCart(); renderCart();
 });
-["#custName","#custAddr","#custNote"].forEach(s => $(s).addEventListener("input", updateSend));
+["#custName","#custAddr","#custCity","#custNote","#giftMsg"].forEach(s => $(s).addEventListener("input", updateSend));
+$("#gift").addEventListener("change", e => { $("#giftMsgWrap").hidden = !e.target.checked; updateSend(); });
 const dlg = $("#cart");
 $("#openCart").onclick = () => { renderCart(); dlg.showModal(); };
 $("#closeCart").onclick = () => dlg.close();
 dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
 
+/* ---------- Animasi muncul saat scroll ---------- */
+const io = "IntersectionObserver" in window
+  ? new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } }), {rootMargin:"0px 0px -8% 0px"})
+  : null;
+function observe(root){
+  root.querySelectorAll(".reveal:not(.in)").forEach((el,k) => {
+    if (!io) return el.classList.add("in");
+    el.style.transitionDelay = (k % 4) * 80 + "ms";
+    io.observe(el);
+  });
+}
+
 /* ---------- Lain-lain ---------- */
 let tt;
-function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("show"), 1800); }
-document.title = STORE_NAME + " — Parfum";
-$("#brandName").textContent = STORE_NAME;
-$("#footerWa").href = waLink(`Halo ${STORE_NAME}, saya mau tanya tentang parfum.`);
+function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("show"), 2200); }
+const askLink = waLink(`Halo ${STORE_NAME}, saya mau tanya tentang parfumnya. Bisa bantu pilihkan?`);
+["#heroWa","#bandWa","#floatWa","#footerWa"].forEach(s => $(s).href = askLink);
+if (INSTAGRAM){ $("#igItem").hidden = false; $("#footerIg").href = "https://instagram.com/" + INSTAGRAM; }
+$("#year").textContent = new Date().getFullYear();
+const headerEl = $("#top");
+addEventListener("scroll", () => headerEl.classList.toggle("scrolled", scrollY > 10), {passive:true});
 
-renderChips(); renderGrid(); renderCart();
+renderChips(); renderGrid(); renderCart(); observe(document);
 </script>
 </body>
 </html>
